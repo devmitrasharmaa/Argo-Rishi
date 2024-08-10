@@ -54,15 +54,4 @@ To run Agro Rishi locally, follow these steps:
 
 5. Access the application at `http://127.0.0.1:5000/`.
 
-## Contributions
-
-We welcome contributions from the community! Please feel free to submit issues or pull requests.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-For any inquiries, please contact the project maintainers at [your-email@example.com](mailto:your-email@example.com).
 
