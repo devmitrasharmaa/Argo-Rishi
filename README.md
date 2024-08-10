@@ -17,12 +17,14 @@ The Agro Community is a public forum where farmers can post about their crops, s
 Agro Rishi includes a feature for detecting crop diseases using image classification models. This feature is currently under construction, with the goal of providing farmers with instant feedback on the health of their crops.
 
 ## Screenshots
+Real time Sensor tracking(Using sample database)
+ ![WhatsApp Image 2024-08-10 at 17 08 52_fec3d2e6](https://github.com/user-attachments/assets/4f1af2f8-09a7-405b-ae6f-85ae4a1af1be)
+![WhatsApp Image 2024-08-10 at 17 10 05_bad98a2f](https://github.com/user-attachments/assets/f0b891dc-bdd1-42d8-b6a8-cc7776bb40cf)
 
-### Code
-*Insert screenshots of key sections of your code here.*
+Asssitant using llama model
+![Screenshot 2024-08-10 171547](https://github.com/user-attachments/assets/dbb38df9-eef9-4c80-badd-c3f11719e251)
+![Screenshot 2024-08-10 171728](https://github.com/user-attachments/assets/db816fbc-e4e3-45d7-b2a7-2b6d749fd1ad)
 
-### Webpage
-*Insert screenshots of your web application's UI here.*
 
 ## Installation
 
