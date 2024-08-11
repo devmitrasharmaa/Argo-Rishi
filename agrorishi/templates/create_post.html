@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="post-create-container mt-4">
+    <form method="POST" enctype="multipart/form-data" class="post-form">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4 text-center">
+                Create New Post
+            </legend>
+            <div>
+                {{ form.picture.label(class="form-control-label") }} 
+                {% if form.picture.errors %}
+                {{ form.picture(class="form-control form-control-lg is-invalid") }} 
+                <div class="invalid-feedback">
+                    {% for error in form.picture.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.picture(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="mt-3">
+                {{ form.caption.label(class="form-control-label") }} 
+                {% if form.caption.errors %}
+                {{ form.caption(class="form-control form-control-lg is-invalid") }} 
+                <div class="invalid-feedback">
+                    {% for error in form.caption.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.caption(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="mt-3">
+                {{ form.description.label(class="form-control-label") }} 
+                {% if form.description.errors %}
+                {{ form.description(class="form-control form-control-lg is-invalid") }} 
+                <div class="invalid-feedback">
+                    {% for error in form.description.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.description(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <div class="mt-3">
+                {{ form.category.label(class="form-control-label") }} 
+                {% if form.category.errors %}
+                {{ form.category(class="form-control form-control-lg is-invalid") }} 
+                <div class="invalid-feedback">
+                    {% for error in form.category.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{ form.category(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group text-center mt-4">
+            {{ form.submit(class="btn btn-outline-info btn-lg") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

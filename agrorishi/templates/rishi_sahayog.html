@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h2>Rishi Sahayog</h2>
+        <p class="lead">Get personalized agricultural advice from our expert assistant. Choose your preferred mode of input below:</p>
+    </div>
+
+    <!-- Main Container with Enhanced Shadow and Rounded Borders -->
+    <div class="container p-4 shadow-lg rounded-3 bg-light">
+        <!-- Mode Selection Form -->
+        <div class="text-center mb-4">
+            <form id="mode-selection-form" method="POST" action="{{ url_for('rishi_sahayog') }}">
+                <div class="form-group">
+                    <label for="mode">Select your mode of input:</label>
+                    <select name="mode" id="mode" class="form-control w-75 mx-auto h-100" onchange="this.form.submit()">
+                        <option value="type" {% if selected_mode == 'type' %}selected{% endif %}>Type</option>
+                        <option value="speak" {% if selected_mode == 'speak' %}selected{% endif %}>Speak</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Input Form Based on Mode -->
+        <div class="text-center">
+            {% if selected_mode == 'type' %}
+            <form id="sahayog-form" method="POST">
+                <input type="hidden" name="mode" value="type">
+                <div class="form-group">
+                    <input type="text" id="user-input" name="user_input" class="form-control w-75 mx-auto" placeholder="Ask your question..." required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% elif selected_mode == 'speak' %}
+            <form id="sahayog-form" method="POST">
+                <input type="hidden" name="mode" value="speak">
+                <button type="submit" class="btn btn-success">Start Listening</button>
+            </form>
+            {% endif %}
+        </div>
+
+        <!-- Response Display -->
+        <div id="response-container" class="mt-4 text-center">
+            {% if response %}
+            <div class="alert alert-info w-75 mx-auto">
+                <strong>Bot:</strong> {{ response }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Cancel Button -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('rishi_sahayog') }}" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

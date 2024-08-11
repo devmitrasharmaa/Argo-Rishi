@@ -1,0 +1,541 @@
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold; /* Optional: Makes the text bold */
+  color: #000; /* Optional: Sets the text color to black */
+}
+
+
+.container {
+  padding: 0 15px; /* Ensures padding is added to container */
+}
+
+.pointed-box {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pointed-box h4 {
+  margin-top: 0;
+}
+
+.pointed-box p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.pointed-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3 {
+  display: flex;
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.col-md-3 .pointed-box {
+  flex: 1;
+}
+
+body {
+  background: #acc6a3;
+  color: #333333;
+  margin-top: 5rem; /* Space for fixed navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000000;
+}
+
+.bg-steel {
+  background-color: #05471b;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #07feac;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+/* Shadow container for the entire content */
+.shadow-container {
+  margin: 30px auto; /* Center container and add margin around it */
+  padding: 60px; /* Padding inside the container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  border-radius: 8px; /* Rounded corners */
+  background-color: #fff; /* White background for better contrast */
+}
+
+/* General layout styling */
+.content-wrapper {
+  display: flex;
+  margin: 0; /* No margin inside the content wrapper */
+  padding: 0; /* No padding inside the content wrapper */
+}
+
+.animated-collage-wrapper {
+  display: flex;
+  justify-content: center; /* Center the grid horizontally */
+  align-items: center; /* Center the grid vertically if there's extra height */
+  min-height: 100vh; /* Ensure the container takes full viewport height */
+  padding: 20px; /* Optional padding around the container */
+}
+
+.animated-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns, equal width */
+  gap: 10px; /* Space between images */
+  width: 100%; /* Full width of the container */
+  max-width: 1200px; /* Optional max-width for better layout control */
+  box-sizing: border-box;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center; /* Center image inside container */
+  align-items: center; /* Center image inside container */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect around the container */
+  border-radius: 8px; /* Rounded corners for the container */
+  overflow:visible; /* Hide overflow to ensure rounded corners work */
+  background-color: #f8f9fa; /* Optional background color for better contrast */
+}
+
+.image-container img {
+  width: 100%; /* Ensure image takes full width of the container */
+  height: 100%; /* Ensure image takes full height of the container */
+  object-fit: cover; /* Crop and cover the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-container img:hover {
+  transform: scale(1.1); /* Scale factor on hover */
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+.login-register-container {
+  max-width: 500px; /* Medium width for the form */
+  margin: 50px auto; /* Center align on the page */
+  padding: 20px; /* Padding inside the container */
+  background: #ffffff;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.invalid_feedback {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 0.5rem;
+}
+
+
+.profile-page-container {
+  max-width: 900px; /* Adjust width as needed */
+  margin: 20px auto; /* Center align the container horizontally */
+  padding: 20px; /* Padding inside the container */
+  background: #ffffff;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.profile-page-container .image-wrapper {
+  width: 150px; /* Fixed width for the circular frame */
+  height: 150px; /* Fixed height for the circular frame */
+  border-radius: 50%; /* Makes the frame circular */
+  overflow: hidden; /* Hides the parts of the image outside the frame */
+  margin: 0 auto; /* Center align the frame */
+  display: flex; /* Flex container to center the image */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.profile-page-container img {
+  width: 100%; /* Fill the width of the circular frame */
+  height: 100%; /* Fill the height of the circular frame */
+  object-fit: cover; /* Ensures the image covers the circle without stretching */
+}
+
+.account-heading {
+  font-weight: bold; /* Make username bold */
+}
+
+.text-secondary {
+  font-weight: bold; /* Make email bold */
+}
+.alert-container {
+  max-width: 600px; /* Adjust width as needed */
+  margin: 0 auto; /* Center the alert container */
+}
+
+.alert {
+  margin-bottom: 1rem; /* Space below each alert */
+}
+
+.dashboard-item h4 {
+  margin: 0;
+  font-size: 1.25rem; /* Default font size for larger screens */
+  color: #333; /* Darker text color for better readability */
+  font-weight: 600; /* Slightly bold text */
+}
+
+/* Main container for centering content */
+.dashboard-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+  justify-content: center;
+  align-items: flex-start; /* Align items to the top */
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Styling for each dashboard item */
+.dashboard-item {
+  width: 200px; /* Default width for larger screens */
+  height: 250px; /* Default height for larger screens */
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  border: 1px solid #ddd; /* Light border for better visual separation */
+  border-radius: 15px; /* Rounded corners for the container */
+  padding: 10px; /* Adjust padding for better spacing */
+  margin: 10px; /* Adjust margin for better spacing */
+  background-color: #fff; /* White background for each item */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effect for dashboard items */
+.dashboard-item:hover {
+  transform: scale(1.08); /* Slightly enlarge the item */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhance the shadow on hover */
+}
+
+/* Styling for images inside dashboard items */
+.dashboard-item img {
+  width: 120px; /* Default width for larger screens */
+  height: 120px; /* Default height for larger screens */
+  object-fit: cover; /* Maintain aspect ratio */
+  border-radius: 50%; /* Make the image circular */
+  margin-bottom: 10px; /* Space between image and text */
+  border: 3px solid #545454; /* Border around the image */
+}
+
+/* Styling for the text under each image */
+.dashboard-item h4 {
+  margin: 0;
+  font-size: 1.25rem; /* Default font size for larger screens */
+  color: #333; /* Darker text color for better readability */
+  font-weight: 600; /* Slightly bold text */
+}
+
+/* Main form container */
+.post-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form label styling */
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Form input styling */
+.form-control,
+.form-control-file {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus,
+.form-control-file:focus {
+  border-color: #28a745;
+  outline: none;
+  box-shadow: 0 0 8px rgba(40, 167, 69, 0.1);
+}
+
+/* Submit button styling */
+.btn-primary {
+  background-color: #28a745;
+  border-color: #28a745;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Centering the submit button */
+.text-center {
+  text-align: center;
+}
+
+/* Container for individual posts */
+.post-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Styling for the post item */
+.post-item {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the post image */
+.post-image {
+  width: 100%;
+  height: auto;
+  max-height: 300px; /* Adjust the max height as needed */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Styling for the username */
+.post-item h5 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Styling for the caption */
+.post-item p {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* Floating button to add a new post */
+.add-post-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.add-post-button .btn {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Styling for the account button */
+.account-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.account-button .btn {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  min-width: 200px;
+}
+
+
+/* Styling for the post cards */
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+/* Floating Add Button */
+.add-post-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #28a745; /* Green color */
+  color: white;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-size: 24px;
+}
+
+.add-post-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  color: white;
+}
+/* Text elements above the carousel */
+.text-center {
+  text-align: center;
+}
+
+.text-center h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.text-center p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.carousel-inner img {
+  width: 100%; /* Make images fit the width of the carousel */
+  height: 400px; /* Set a fixed height */
+  object-fit: cover; /* Ensure images cover the container without distortion */
+}
+
+.carousel-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for effect */
+  border-radius: 8px; /* Optional: round the corners */
+  overflow: hidden; /* Ensure no overflow from the image */
+}
+
+
+/* Style for four-pointed paragraph boxes */
+.pointed-box {
+  padding: 20px;
+  background: #bff4c3;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.pointed-box:hover {
+  background-color: #13531e;
+}
+
+.pointed-box h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.pointed-box p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-item {
+    width: 150px; /* Reduced width for tablets and mobile devices */
+    height: 200px; /* Reduced height for tablets and mobile devices */
+    padding: 8px; /* Adjust padding */
+    margin: 8px; /* Adjust margin */
+  }
+
+  .dashboard-item img {
+    width: 100px; /* Reduced width for images */
+    height: 100px; /* Reduced height for images */
+  }
+
+  .dashboard-item h4 {
+    font-size: 1rem; /* Adjust font size for better readability on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-item {
+    width: 120px; /* Further reduced width for very small screens */
+    height: 160px; /* Further reduced height for very small screens */
+    padding: 6px; /* Adjust padding */
+    margin: 6px; /* Adjust margin */
+  }
+
+  .dashboard-item img {
+    width: 80px; /* Further reduced width for images */
+    height: 80px; /* Further reduced height for images */
+  }
+
+  .dashboard-item h4 {
+    font-size: 0.875rem; /* Further reduced font size for very small screens */
+  }
+}
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column; /* Stack vertically on small screens */
+    }
+  
+    .animated-collage {
+        width: 95%; /* Full width on small screens */
+    }
+  
+    .animated-collage img {
+        width: 100%; /* Full width on small screens */
+        margin: 2px; /* Adjusted margin for small screens */
+    }
+  
+    .login-register-container {
+        margin: 50px auto; /* Center align on small screens */
+    }
+  }
+
+
+
+@media (max-width: 768px) {
+    .login-register-container {
+        margin: 20px auto; /* Reduce margin for smaller screens */
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+}

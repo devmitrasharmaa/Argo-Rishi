@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4 text-center">My Posts</h1>
+    {% for post in posts %}
+    <div class="post-container mb-4">
+        <div class="post-item shadow-sm p-3 bg-white rounded">
+            <img src="{{ url_for('static', filename='post_pics/' + post.image_file) }}" class="post-image img-fluid" alt="Post Image">
+            <h5 class="mt-3">{{ post.caption }}</h5>
+            <p class="text-muted">Category: {{ post.category.value }}</p>
+            <p>{{ post.description }}</p>
+            <form method="POST" action="{{ url_for('delete_post', post_id=post.id) }}" class="text-center mt-3">
+                <button type="submit" class="btn btn-danger">Delete Post</button>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

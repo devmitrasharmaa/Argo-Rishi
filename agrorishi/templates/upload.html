@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>Upload Plant Image</h1>
+        <p class="lead">Upload an image of your plant to diagnose any potential diseases.</p>
+    </div>
+
+    <!-- Main Container with Enhanced Shadow and Rounded Borders -->
+    <div class="container p-4 shadow rounded bg-light" style="max-width: 500px;">
+        <!-- Upload Form -->
+        <div class="text-center mb-4">
+            <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" name="image" accept="image/*" class="form-control-file mb-3">
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+        </div>
+
+        <!-- Response Display (if needed) -->
+        <div id="response-container" class="mt-4 text-center">
+            {% if response %}
+            <div class="alert alert-info">
+                <strong>Bot:</strong> {{ response }}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Cancel Button (if applicable) -->
+        <div class="text-center mt-4">
+            <a href="{{ url_for('home') }}" class="btn btn-danger">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

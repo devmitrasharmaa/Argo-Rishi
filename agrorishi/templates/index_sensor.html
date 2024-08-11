@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroRishi Real-Time Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+        }
+
+        .dashboard-container {
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background: #ffffff; /* White background for content */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 100%;
+            height: 500px; /* Adjust height as needed */
+            margin: 0 auto;
+            padding: 20px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            position: relative; /* To position the loading spinner */
+        }
+
+        #sensorChart {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 8px solid rgba(0, 0, 0, 0.1);
+            border-left: 8px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>AgroRishi Real-Time Sensor Data</h1>
+        <div class="chart-container">
+            <canvas id="sensorChart"></canvas>
+            <div class="spinner" id="loadingSpinner"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize the chart
+        const ctx = document.getElementById('sensorChart').getContext('2d');
+        const sensorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Timestamps will go here
+                datasets: [{
+                    label: 'Soil Moisture (%)',
+                    data: [],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }, {
+                    label: 'Temperature (°C)',
+                    data: [],
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }, {
+                    label: 'Humidity (%)',
+                    data: [],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Timestamp'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Sensor Readings'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Initialize the Socket.IO client
+        const socket = io();
+
+        // Hide the loading spinner initially
+        document.getElementById('loadingSpinner').style.display = 'none';
+
+        // Listen for sensor data updates
+        socket.on('sensor_update', function(data) {
+            console.log('Received data:', data);
+
+            if (data.timestamp && data.soil_moisture !== undefined && data.temperature !== undefined && data.humidity !== undefined) {
+                // Show the chart and hide the loading spinner
+                document.getElementById('loadingSpinner').style.display = 'none';
+
+                // Add new data to the chart
+                sensorChart.data.labels.push(data.timestamp);
+                sensorChart.data.datasets[0].data.push(data.soil_moisture);
+                sensorChart.data.datasets[1].data.push(data.temperature);
+                sensorChart.data.datasets[2].data.push(data.humidity);
+
+                // Limit the chart to show only the last 10 data points
+                if (sensorChart.data.labels.length > 10) {
+                    sensorChart.data.labels.shift();
+                    sensorChart.data.datasets.forEach(dataset => {
+                        dataset.data.shift();
+                    });
+                }
+
+                // Update the chart
+                sensorChart.update();
+            } else {
+                console.error('Incomplete data received:', data);
+            }
+        });
+
+        // Display a loading spinner while waiting for data
+        socket.on('connect', function() {
+            document.getElementById('loadingSpinner').style.display = 'block';
+        });
+    </script>
+</body>
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <a href="{{url_for('predict')}}">
+                <img src="{{ url_for('static', filename='images/new.jpg') }}" alt="Attendance Thumbnail">
+                <h4>Crop Disease Detection</h4>
+            </a>
+        </div>
+        <div class="dashboard-item">
+            <a href="{{ url_for('rishi_sahayog') }}">
+                <img src="{{ url_for('static', filename='images/Chat.jpg') }}" alt="Rishi Sahayog Thumbnail">
+                <h4>Rishi Sahayog</h4>
+            </a>
+        </div>
+        
+        <div class="dashboard-item">
+            <a href="{{url_for('sensorwala')}}">
+                <img src="{{ url_for('static', filename='images/sensor.jpg') }}" alt="Training Model">
+                <h4>Sensors</h4>
+            </a>
+        </div>
+        <div class="dashboard-item">
+            <a href="{{url_for('community')}}">
+                <img src="{{ url_for('static', filename='images/agro_community.jpg') }}" alt="Your Classes Thumbnail">
+                <h4>Agro Community</h4>
+            </a>
+        </div>
+        
+    </div>
+{% endblock content %}
