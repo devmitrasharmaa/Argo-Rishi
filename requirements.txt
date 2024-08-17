@@ -1,0 +1,17 @@
+Flask==2.3.2
+Flask-SQLAlchemy==3.0.5
+Flask-Bcrypt==1.0.1
+Flask-Login==0.6.3
+Flask-WTF==1.1.1
+Flask-SocketIO==5.3.5
+WTForms==3.0.1
+bleak==0.20.2
+asyncio==3.4.3
+Pillow==10.0.1
+pyttsx3==2.90
+SpeechRecognition==3.10.0
+deep-translator==1.11.4
+langchain-ollama==0.0.4
+langchain-core==0.0.191
+eventlet==0.33.3
+greenlet==3.0.0
