@@ -27,7 +27,7 @@ Asssitant using llama model
 
 
 ## Installation
-For installation, you need a llm local model,
+For installation, you need a llm model locally,
 Download [https://ollama.com/]  then
 ```bash
     ollama run llama3
