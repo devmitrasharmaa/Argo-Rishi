@@ -29,11 +29,6 @@ Asssitant using llama model
 ## Installation
 
 To run Agro Rishi locally, follow these steps:
-Download [https://ollama.com/]  then
-```bash
-    ollama run llama3
-    ```
-
 
 1. Clone the repository:
     ```bash
